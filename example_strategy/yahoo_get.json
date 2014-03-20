@@ -1,0 +1,14 @@
+[
+{
+ "plugin":"in_http",
+ "args":{
+  "url":"http://www.yahoo.co.jp"
+ }
+},
+{
+ "plugin":"out_console",
+ "args":{
+  "input":"in_http"
+ }
+}
+]
