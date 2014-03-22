@@ -18,11 +18,18 @@ exports.run = function(inputTools, callback){
     });
     switch(typeof data){
     case 'string':
-        var msg = data;
-        bot.updateStatus(msg.slice(0, TWITTER_MAXLEN), function (result) {
-            console.log(result);
+        var msg = data.slice(0, TWITTER_MAXLEN);
+        if(msg.length > 0){
+            bot.updateStatus(msg, function (result) {
+                console.log(result);
+                callback(null);
+            });
+        }else{
             callback(null);
-        });
+        }
+        break;
+    default:
+        callback(null);
         break;
     }
 };
