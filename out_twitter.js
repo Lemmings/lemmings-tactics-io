@@ -21,6 +21,7 @@ exports.run = function(inputTools, callback){
         var msg = data;
         bot.updateStatus(msg.slice(0, TWITTER_MAXLEN), function (result) {
             console.log(result);
+            callback(null);
         });
         break;
     }
